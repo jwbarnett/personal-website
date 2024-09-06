@@ -1,9 +1,5 @@
-import Header from '../components/Header';
-
 const Home = () => {
   return (
-    <div className="mt-12 m-auto max-w-4xl leading-relaxed">
-    <Header />
     <article className="mx-2 space-y-3">
       <h1 className="mb-5 text-3xl font-bold">👋 hey!</h1>
       <p>
@@ -16,7 +12,6 @@ const Home = () => {
         to take some nice photos when I get the opportunity.
       </p>
     </article>
-  </div>
   )
 };
 

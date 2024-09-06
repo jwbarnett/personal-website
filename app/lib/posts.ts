@@ -5,7 +5,7 @@ import { remark } from 'remark';
 import html from 'remark-html';
 
 interface BlogMatterData {
-  title: string,
+  title: string
   date: string
 }
 
