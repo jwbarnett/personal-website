@@ -7,12 +7,14 @@ import html from 'remark-html';
 interface BlogMatterData {
   title: string
   date: string
+  draft: boolean
 }
 
 export interface BlogData {
   id: string
   title: string
   date: string
+  draft: boolean
   year: number
 }
 
@@ -38,7 +40,7 @@ export function getSortedPostsDataByYear(): Record<number, Array<BlogData>> {
       ...matterResult.data as BlogMatterData,
       year: new Date(matterResult.data.date).getFullYear()
     };
-  });
+  }).filter(blogData => !blogData.draft);
 
   allPostsData.sort(({ date: a }, { date: b }) => a < b ? 1 : a > b ? -1 : 0);
 
