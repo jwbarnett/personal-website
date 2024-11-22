@@ -8,7 +8,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const postData = await getPostData(params.id);
   return {
     title: postData.title,
@@ -20,9 +21,10 @@ const dateString = (date) => {
   return new Date(date).toLocaleDateString("en-UK", dateOptions);
 }
 
-export default async function Post({ params }) {
+export default async function Post(props) {
+  const params = await props.params;
   const postData = await getPostData(params.id);
-  
+
   return (
     <article>
       <h1 className="text-3xl font-bold">{postData.title}</h1>
